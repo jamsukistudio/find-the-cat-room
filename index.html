@@ -9,57 +9,56 @@
 <body>
   <main class="app">
     <section class="game">
-      <div class="top">
-        <div class="brand">
-          <div class="jar">🍓</div>
+      <div class="hud">
+        <div class="title">
+          <div class="logo">🐾</div>
           <div>
             <h1>るいとまいの<br class="sp">かくれんぼ</h1>
-            <p>JamSuki Studio</p>
+            <p>JamSuki Studio 🍓</p>
           </div>
         </div>
-        <div class="meter">
-          <span>部屋</span>
-          <b id="stageName">寝室</b>
+
+        <div class="pill">
+          <span>ステージ</span>
+          <strong><b id="stageNow">1</b> / 3</strong>
         </div>
-        <div class="meter">
-          <span>見つけた</span>
-          <b><i id="found">0</i>/<i id="total">4</i></b>
+        <div class="pill">
+          <span>みつけた数</span>
+          <strong><b id="found">0</b> / <b id="total">4</b></strong>
         </div>
-        <div class="meter">
-          <span>TIME</span>
-          <b id="timer">0.00</b>
+        <div class="pill time">
+          <span>タイム</span>
+          <strong id="timer">00:00.00</strong>
         </div>
-        <button id="reset" class="reset">↻</button>
+        <button id="resetBtn" class="circle">↻</button>
       </div>
 
-      <div id="scene" class="scene bedroom">
-        <div class="wall"></div>
-        <div class="floor"></div>
-        <div id="roomLayer"></div>
-        <div id="spotLayer"></div>
-        <div id="catLayer"></div>
-        <div id="effectLayer"></div>
+      <div id="scene" class="scene">
+        <img id="room" src="room1.png" class="room" alt="かわいい部屋">
+        <div id="spots"></div>
+        <div id="cats"></div>
+        <div id="fx"></div>
 
-        <div id="startPanel" class="panel">
-          <div class="panel-inner">
+        <div id="startPanel" class="overlay">
+          <div class="modal">
             <h2>るいとまいを探そう</h2>
-            <p>毎回ちがう場所に4匹かくれるよ。<br>部屋は3つ。全部見つけるまでのタイムを競おう。</p>
+            <p>毎回ちがう場所に4匹かくれるよ。<br>ポーズは10種類。見つけたら「にゃ！」</p>
             <button id="startBtn">START 🐾</button>
           </div>
         </div>
 
-        <div id="clearPanel" class="panel hidden">
-          <div class="panel-inner">
+        <div id="clearPanel" class="overlay hidden">
+          <div class="modal">
             <h2 id="clearTitle">CLEAR!</h2>
-            <p id="clearText"></p>
-            <button id="nextBtn">次の部屋へ</button>
+            <p id="clearText">次のステージへ進もう。</p>
+            <button id="nextBtn">次のステージへ</button>
           </div>
         </div>
       </div>
 
       <div class="bottom">
         <p id="message">STARTを押してね。</p>
-        <div class="stars" id="badges"></div>
+        <div id="poseList" class="pose-list"></div>
       </div>
     </section>
   </main>
