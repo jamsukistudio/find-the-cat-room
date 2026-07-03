@@ -10,48 +10,38 @@
   <main class="app">
     <section class="game">
       <div class="hud">
-        <div class="logo">
+        <div class="title">
           <div class="paw">🐾</div>
           <div>
             <h1>ねこ、どこにいる？</h1>
             <p>JamSuki Studio 🍓</p>
           </div>
         </div>
-        <div class="scoreBox">
-          <span>みつけた数</span>
-          <strong><b id="found">0</b> / <b id="total">7</b></strong>
+        <div class="box">
+          <span>ステージ</span>
+          <strong id="stageText">1 / 3</strong>
         </div>
-        <button id="resetBtn" class="reset">↻</button>
+        <div class="box">
+          <span>みつけた数</span>
+          <strong><b id="found">0</b> / <b id="total">4</b></strong>
+        </div>
+        <button id="resetBtn" class="round">↻</button>
       </div>
 
       <div class="scene" id="scene">
-        <img src="room.png" class="room" alt="かわいい部屋の中で猫を探すゲーム">
-
-        <button class="catSpot bed" data-name="ベッドの下のねこ"></button>
-        <button class="catSpot window" data-name="出窓の三毛ねこ"></button>
-        <button class="catSpot tower" data-name="キャットタワーの白ねこ"></button>
-        <button class="catSpot shelfTop" data-name="本棚の上のねこ"></button>
-        <button class="catSpot shelfBox" data-name="本棚の箱ねこ"></button>
-        <button class="catSpot cardboard" data-name="ダンボールのしっぽ"></button>
-        <button class="catSpot butt" data-name="キャットタワーのしっぽねこ"></button>
-
-        <div id="effectLayer"></div>
+        <img id="roomImg" class="room" src="room1.png" alt="猫探しの部屋">
+        <div id="spots"></div>
+        <div id="effect"></div>
         <div id="clear" class="clear hidden">
           <div>
-            <p class="clearBig">CLEAR!</p>
-            <p>全部みつけたよ 🐱🐾</p>
+            <p id="clearTitle">CLEAR!</p>
+            <button id="nextBtn">次の部屋へ</button>
           </div>
         </div>
       </div>
 
       <div class="footer">
-        <div>
-          <p id="message" class="message">部屋の中に隠れている猫をタップしてね。</p>
-          <p class="small">見つけた猫には「みつけた！」マークが出るよ。</p>
-        </div>
-        <div id="badges" class="badges">
-          <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span>
-        </div>
+        <p id="message">家具に隠れている猫をタップしてね。</p>
       </div>
     </section>
   </main>
