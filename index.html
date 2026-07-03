@@ -10,88 +10,87 @@
   <main class="app">
     <header class="topbar">
       <div>
-        <p class="brand">JamSuki Studio</p>
+        <p class="brand">🍓 JamSuki Studio</p>
         <h1>ねこ、どこにいる？</h1>
-        <p class="sub">部屋の中の怪しい場所をタップして、隠れたねこを見つけよう。</p>
+        <p class="sub">隠れられそうな場所をタップして、ねこを見つけよう。</p>
       </div>
       <div class="stats">
-        <div class="stat"><span>ラウンド</span><strong id="round">1 / 5</strong></div>
-        <div class="stat"><span>見つけた数</span><strong id="score">0</strong></div>
-        <div class="stat"><span>タップ数</span><strong id="tries">0</strong></div>
+        <div><span>ROUND</span><strong id="round">1 / 5</strong></div>
+        <div><span>FOUND</span><strong id="score">0</strong></div>
+        <div><span>TAP</span><strong id="tries">0</strong></div>
       </div>
     </header>
 
-    <section class="room-wrap">
+    <section class="room-card">
       <div class="room" id="room">
-        <div class="wall-art">🐾</div>
+        <div class="wall shelf-wall">
+          <div class="shelf-board"></div>
+          <div class="jar">🍓</div>
+          <div class="frame-small">🐱</div>
+          <div class="plant-small"></div>
+        </div>
+
         <div class="window">
-          <div class="sky"></div>
-          <div class="curtain left"></div>
-          <div class="curtain right"></div>
+          <div class="view"><span>☁️</span><span>🌳</span><span>🌸</span></div>
+          <div class="curtain curtain-l"></div>
+          <div class="curtain curtain-r"></div>
+          <div class="window-seat"></div>
         </div>
 
-        <div class="shelf furniture">
-          <div class="shelf-top"></div>
-          <div class="shelf-row"></div>
-          <div class="shelf-row"></div>
-          <div class="book a"></div>
-          <div class="book b"></div>
-          <div class="book c"></div>
-          <div class="box-small"></div>
-        </div>
-
-        <div class="bed furniture">
-          <div class="pillow"></div>
+        <div class="bed">
+          <div class="headboard"></div>
+          <div class="pillow pink"></div>
+          <div class="pillow cream"></div>
           <div class="blanket"></div>
+          <div class="bed-base"></div>
         </div>
 
-        <div class="chair furniture">
-          <div class="chair-back"></div>
-          <div class="chair-seat"></div>
-          <div class="chair-leg a"></div>
-          <div class="chair-leg b"></div>
+        <div class="rug"></div>
+        <div class="table"><div class="mug">☕</div><div class="book">📖</div></div>
+
+        <div class="cat-tree">
+          <div class="pole p1"></div><div class="pole p2"></div>
+          <div class="platform top"></div><div class="platform mid"></div>
+          <div class="house">🐾</div>
+          <div class="toy"></div>
         </div>
 
-        <div class="plant furniture">
-          <div class="leaf l1"></div>
-          <div class="leaf l2"></div>
-          <div class="leaf l3"></div>
+        <div class="plant-big">
+          <div class="leaf a"></div><div class="leaf b"></div><div class="leaf c"></div><div class="leaf d"></div>
           <div class="pot"></div>
         </div>
 
-        <div class="desk furniture">
-          <div class="laptop"></div>
-          <div class="mug"></div>
+        <div class="bookshelf">
+          <div class="cat-basket">🐈‍⬛</div>
+          <div class="row r1"><span></span><span></span><span></span><span></span></div>
+          <div class="row r2"><span></span><span></span><span></span><span></span></div>
+          <div class="basket"></div>
+          <div class="doors"></div>
         </div>
+
+        <div class="strawberry-house"></div>
 
         <div class="cat-reveal" id="catReveal">🐱</div>
 
-        <button class="spot bed-spot" data-spot="bed" aria-label="ベッドの下を調べる">ベッドの下</button>
-        <button class="spot shelf-spot" data-spot="shelf" aria-label="棚の中を調べる">棚</button>
-        <button class="spot chair-spot" data-spot="chair" aria-label="椅子のまわりを調べる">椅子</button>
-        <button class="spot curtain-spot" data-spot="curtain" aria-label="カーテンの後ろを調べる">カーテン</button>
-        <button class="spot plant-spot" data-spot="plant" aria-label="観葉植物の後ろを調べる">観葉植物</button>
-        <button class="spot desk-spot" data-spot="desk" aria-label="机の下を調べる">机の下</button>
+        <button class="spot bed-spot" data-spot="bed" aria-label="ベッドの下"></button>
+        <button class="spot shelf-spot" data-spot="shelf" aria-label="棚"></button>
+        <button class="spot curtain-spot" data-spot="curtain" aria-label="大きな窓"></button>
+        <button class="spot tree-spot" data-spot="tree" aria-label="キャットタワー"></button>
+        <button class="spot plant-spot" data-spot="plant" aria-label="観葉植物"></button>
+        <button class="spot bookshelf-spot" data-spot="bookshelf" aria-label="本棚"></button>
+        <button class="spot house-spot" data-spot="house" aria-label="いちごハウス"></button>
+        <button class="spot table-spot" data-spot="table" aria-label="テーブル"></button>
       </div>
     </section>
 
     <section class="panel">
-      <p id="message" class="message">まずは怪しい場所をタップ！</p>
+      <p id="message" class="message">あやしい場所をタップしてね。</p>
       <div class="actions">
         <button id="nextBtn" class="primary" disabled>次のラウンド</button>
         <button id="resetBtn" class="secondary">最初から</button>
       </div>
-      <details class="help">
-        <summary>遊び方</summary>
-        <ul>
-          <li>部屋の中の「隠れられそうな場所」をタップします。</li>
-          <li>ねこがいる場所を当てると、そのラウンドクリアです。</li>
-          <li>全5ラウンド。見つけた数を増やそう。</li>
-        </ul>
-      </details>
     </section>
   </main>
-
   <script src="script.js"></script>
 </body>
 </html>
