@@ -3,46 +3,54 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>Find the Cats v2 | JamSuki Studio</title>
+  <title>ねこ、どこにいる？ | JamSuki Studio</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <main class="app">
-    <section class="game-card">
-      <div class="top-ui">
-        <div class="title">
+    <section class="game">
+      <div class="hud">
+        <div class="logo">
           <div class="paw">🐾</div>
           <div>
-            <h1>Find the Cats v2</h1>
-            <p>JamSuki Studio 🍓 背景画像版</p>
+            <h1>ねこ、どこにいる？</h1>
+            <p>JamSuki Studio 🍓</p>
           </div>
         </div>
-        <div class="counter">
+        <div class="scoreBox">
           <span>みつけた数</span>
-          <strong><b id="found">0</b> / <b id="total">5</b></strong>
+          <strong><b id="found">0</b> / <b id="total">7</b></strong>
         </div>
-        <button id="resetBtn" class="round-btn">↻</button>
+        <button id="resetBtn" class="reset">↻</button>
       </div>
 
-      <div id="scene" class="scene">
-        <img src="room.png" alt="かわいい部屋" class="room-bg">
-        <div id="message" class="message">隠れている猫をタップしてみつけよう！</div>
+      <div class="scene" id="scene">
+        <img src="room.png" class="room" alt="かわいい部屋の中で猫を探すゲーム">
 
-        <button class="cat-hit bed-cat" data-cat="ベッド下のねこ"></button>
-        <button class="cat-hit window-cat" data-cat="出窓の三毛ねこ"></button>
-        <button class="cat-hit tower-cat" data-cat="キャットタワーの白ねこ"></button>
-        <button class="cat-hit shelf-cat" data-cat="本棚の三毛ねこ"></button>
-        <button class="cat-hit box-cat" data-cat="箱のしっぽ"></button>
-        <div id="sparkles" class="sparkles"></div>
+        <button class="catSpot bed" data-name="ベッドの下のねこ"></button>
+        <button class="catSpot window" data-name="出窓の三毛ねこ"></button>
+        <button class="catSpot tower" data-name="キャットタワーの白ねこ"></button>
+        <button class="catSpot shelfTop" data-name="本棚の上のねこ"></button>
+        <button class="catSpot shelfBox" data-name="本棚の箱ねこ"></button>
+        <button class="catSpot cardboard" data-name="ダンボールのしっぽ"></button>
+        <button class="catSpot butt" data-name="キャットタワーのしっぽねこ"></button>
+
+        <div id="effectLayer"></div>
+        <div id="clear" class="clear hidden">
+          <div>
+            <p class="clearBig">CLEAR!</p>
+            <p>全部みつけたよ 🐱🐾</p>
+          </div>
+        </div>
       </div>
 
-      <div class="bottom-ui">
+      <div class="footer">
         <div>
-          <p class="main-text">かくれている猫をタップしてみつけよう！</p>
-          <p class="sub-text">全部みつけるとクリアだよ 🐾</p>
+          <p id="message" class="message">部屋の中に隠れている猫をタップしてね。</p>
+          <p class="small">見つけた猫には「みつけた！」マークが出るよ。</p>
         </div>
-        <div class="cat-list" id="catList">
-          <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span>
+        <div id="badges" class="badges">
+          <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span>
         </div>
       </div>
     </section>
