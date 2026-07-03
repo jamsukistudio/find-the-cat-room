@@ -3,45 +3,63 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>ねこ、どこにいる？ | JamSuki Studio</title>
+  <title>るいとまいのかくれんぼ | JamSuki Studio</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <main class="app">
     <section class="game">
-      <div class="hud">
-        <div class="title">
-          <div class="paw">🐾</div>
+      <div class="top">
+        <div class="brand">
+          <div class="jar">🍓</div>
           <div>
-            <h1>ねこ、どこにいる？</h1>
-            <p>JamSuki Studio 🍓</p>
+            <h1>るいとまいの<br class="sp">かくれんぼ</h1>
+            <p>JamSuki Studio</p>
           </div>
         </div>
-        <div class="box">
-          <span>ステージ</span>
-          <strong id="stageText">1 / 3</strong>
+        <div class="meter">
+          <span>部屋</span>
+          <b id="stageName">寝室</b>
         </div>
-        <div class="box">
-          <span>みつけた数</span>
-          <strong><b id="found">0</b> / <b id="total">4</b></strong>
+        <div class="meter">
+          <span>見つけた</span>
+          <b><i id="found">0</i>/<i id="total">4</i></b>
         </div>
-        <button id="resetBtn" class="round">↻</button>
+        <div class="meter">
+          <span>TIME</span>
+          <b id="timer">0.00</b>
+        </div>
+        <button id="reset" class="reset">↻</button>
       </div>
 
-      <div class="scene" id="scene">
-        <img id="roomImg" class="room" src="room1.png" alt="猫探しの部屋">
-        <div id="spots"></div>
-        <div id="effect"></div>
-        <div id="clear" class="clear hidden">
-          <div>
-            <p id="clearTitle">CLEAR!</p>
+      <div id="scene" class="scene bedroom">
+        <div class="wall"></div>
+        <div class="floor"></div>
+        <div id="roomLayer"></div>
+        <div id="spotLayer"></div>
+        <div id="catLayer"></div>
+        <div id="effectLayer"></div>
+
+        <div id="startPanel" class="panel">
+          <div class="panel-inner">
+            <h2>るいとまいを探そう</h2>
+            <p>毎回ちがう場所に4匹かくれるよ。<br>部屋は3つ。全部見つけるまでのタイムを競おう。</p>
+            <button id="startBtn">START 🐾</button>
+          </div>
+        </div>
+
+        <div id="clearPanel" class="panel hidden">
+          <div class="panel-inner">
+            <h2 id="clearTitle">CLEAR!</h2>
+            <p id="clearText"></p>
             <button id="nextBtn">次の部屋へ</button>
           </div>
         </div>
       </div>
 
-      <div class="footer">
-        <p id="message">家具に隠れている猫をタップしてね。</p>
+      <div class="bottom">
+        <p id="message">STARTを押してね。</p>
+        <div class="stars" id="badges"></div>
       </div>
     </section>
   </main>
