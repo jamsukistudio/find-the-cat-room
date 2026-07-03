@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>ねこ、どこにいる？ | JamSuki Studio</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app">
+    <header class="topbar">
+      <div>
+        <p class="brand">JamSuki Studio</p>
+        <h1>ねこ、どこにいる？</h1>
+        <p class="sub">部屋の中の怪しい場所をタップして、隠れたねこを見つけよう。</p>
+      </div>
+      <div class="stats">
+        <div class="stat"><span>ラウンド</span><strong id="round">1 / 5</strong></div>
+        <div class="stat"><span>見つけた数</span><strong id="score">0</strong></div>
+        <div class="stat"><span>タップ数</span><strong id="tries">0</strong></div>
+      </div>
+    </header>
+
+    <section class="room-wrap">
+      <div class="room" id="room">
+        <div class="wall-art">🐾</div>
+        <div class="window">
+          <div class="sky"></div>
+          <div class="curtain left"></div>
+          <div class="curtain right"></div>
+        </div>
+
+        <div class="shelf furniture">
+          <div class="shelf-top"></div>
+          <div class="shelf-row"></div>
+          <div class="shelf-row"></div>
+          <div class="book a"></div>
+          <div class="book b"></div>
+          <div class="book c"></div>
+          <div class="box-small"></div>
+        </div>
+
+        <div class="bed furniture">
+          <div class="pillow"></div>
+          <div class="blanket"></div>
+        </div>
+
+        <div class="chair furniture">
+          <div class="chair-back"></div>
+          <div class="chair-seat"></div>
+          <div class="chair-leg a"></div>
+          <div class="chair-leg b"></div>
+        </div>
+
+        <div class="plant furniture">
+          <div class="leaf l1"></div>
+          <div class="leaf l2"></div>
+          <div class="leaf l3"></div>
+          <div class="pot"></div>
+        </div>
+
+        <div class="desk furniture">
+          <div class="laptop"></div>
+          <div class="mug"></div>
+        </div>
+
+        <div class="cat-reveal" id="catReveal">🐱</div>
+
+        <button class="spot bed-spot" data-spot="bed" aria-label="ベッドの下を調べる">ベッドの下</button>
+        <button class="spot shelf-spot" data-spot="shelf" aria-label="棚の中を調べる">棚</button>
+        <button class="spot chair-spot" data-spot="chair" aria-label="椅子のまわりを調べる">椅子</button>
+        <button class="spot curtain-spot" data-spot="curtain" aria-label="カーテンの後ろを調べる">カーテン</button>
+        <button class="spot plant-spot" data-spot="plant" aria-label="観葉植物の後ろを調べる">観葉植物</button>
+        <button class="spot desk-spot" data-spot="desk" aria-label="机の下を調べる">机の下</button>
+      </div>
+    </section>
+
+    <section class="panel">
+      <p id="message" class="message">まずは怪しい場所をタップ！</p>
+      <div class="actions">
+        <button id="nextBtn" class="primary" disabled>次のラウンド</button>
+        <button id="resetBtn" class="secondary">最初から</button>
+      </div>
+      <details class="help">
+        <summary>遊び方</summary>
+        <ul>
+          <li>部屋の中の「隠れられそうな場所」をタップします。</li>
+          <li>ねこがいる場所を当てると、そのラウンドクリアです。</li>
+          <li>全5ラウンド。見つけた数を増やそう。</li>
+        </ul>
+      </details>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
