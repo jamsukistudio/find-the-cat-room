@@ -1,1 +1,58 @@
-const spots=document.querySelectorAll('.spot');const roundEl=document.getElementById('round');const scoreEl=document.getElementById('score');const triesEl=document.getElementById('tries');const messageEl=document.getElementById('message');const nextBtn=document.getElementById('nextBtn');const resetBtn=document.getElementById('resetBtn');const catReveal=document.getElementById('catReveal');const total=5;const names={bed:'ベッドの下',shelf:'棚',curtain:'大きな窓',tree:'キャットタワー',plant:'観葉植物',bookshelf:'本棚',house:'いちごハウス',table:'テーブル'};const pos={bed:{left:'16%',top:'71%'},shelf:{left:'13%',top:'18%'},curtain:{left:'47%',top:'27%'},tree:{left:'71%',top:'43%'},plant:{left:'82%',top:'51%'},bookshelf:{left:'88%',top:'36%'},house:{left:'84%',top:'73%'},table:{left:'49%',top:'68%'}};let round=1,score=0,tries=0,hidden='',done=false;function pick(){const k=Object.keys(names);return k[Math.floor(Math.random()*k.length)]}function update(){roundEl.textContent=`${round} / ${total}`;scoreEl.textContent=score;triesEl.textContent=tries}function startRound(){hidden=pick();done=false;catReveal.style.display='none';nextBtn.disabled=true;spots.forEach(b=>{b.disabled=false;b.classList.remove('flash')});messageEl.textContent=`ラウンド ${round}：どこにいるかな？`;update()}function reveal(where){catReveal.style.left=pos[where].left;catReveal.style.top=pos[where].top;catReveal.style.display='block'}spots.forEach(btn=>btn.addEventListener('click',()=>{if(done)return;const s=btn.dataset.spot;tries++;btn.classList.add('flash');setTimeout(()=>btn.classList.remove('flash'),350);if(s===hidden){done=true;score++;reveal(s);messageEl.textContent=`見つけた！ ${names[s]} にいたよ 🐱`;spots.forEach(x=>x.disabled=true);nextBtn.disabled=false;if(round===total)nextBtn.textContent='結果を見る'}else{messageEl.textContent=`そこにはいないみたい… ${names[s]} は空っぽ。`;btn.disabled=true}update()}));nextBtn.addEventListener('click',()=>{if(!done)return;if(round>=total){messageEl.textContent=`おつかれさま！ ${score}匹見つけたよ。もう一回やる？`;catReveal.style.display='none';nextBtn.disabled=true;nextBtn.textContent='次のラウンド';return}round++;nextBtn.textContent='次のラウンド';startRound()});resetBtn.addEventListener('click',()=>{round=1;score=0;tries=0;nextBtn.textContent='次のラウンド';startRound()});startRound();
+const hits = document.querySelectorAll('.cat-hit');
+const foundEl = document.getElementById('found');
+const totalEl = document.getElementById('total');
+const message = document.getElementById('message');
+const resetBtn = document.getElementById('resetBtn');
+const sparkles = document.getElementById('sparkles');
+const catList = [...document.querySelectorAll('#catList span')];
+
+let found = 0;
+const total = hits.length;
+totalEl.textContent = total;
+
+function sparkleAt(x, y) {
+  const s = document.createElement('div');
+  s.className = 'sparkle';
+  s.textContent = '✨';
+  s.style.left = x + 'px';
+  s.style.top = y + 'px';
+  sparkles.appendChild(s);
+  setTimeout(() => s.remove(), 800);
+}
+
+function clearOverlay() {
+  const div = document.createElement('div');
+  div.className = 'clear';
+  div.innerHTML = 'CLEAR!<br>全部みつけたよ 🐾';
+  document.querySelector('.scene').appendChild(div);
+}
+
+hits.forEach((btn, i) => {
+  btn.addEventListener('click', () => {
+    if (btn.classList.contains('found')) return;
+    btn.classList.add('found');
+    found += 1;
+    foundEl.textContent = found;
+    catList[i]?.classList.add('done');
+
+    const rect = btn.getBoundingClientRect();
+    const sceneRect = document.querySelector('.scene').getBoundingClientRect();
+    sparkleAt(rect.left - sceneRect.left + rect.width / 2, rect.top - sceneRect.top + rect.height / 2);
+
+    message.textContent = `${btn.dataset.cat}を見つけた！ あと${total - found}匹。`;
+
+    if (found === total) {
+      message.textContent = '全部みつけた！クリアだよ 🐱';
+      setTimeout(clearOverlay, 300);
+    }
+  });
+});
+
+resetBtn.addEventListener('click', () => {
+  found = 0;
+  foundEl.textContent = found;
+  message.textContent = '隠れている猫をタップしてみつけよう！';
+  hits.forEach(btn => btn.classList.remove('found'));
+  catList.forEach(x => x.classList.remove('done'));
+  document.querySelector('.clear')?.remove();
+});
