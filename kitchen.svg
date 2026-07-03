@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900">
+<defs>
+  <linearGradient id="wall" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#fff7ec"/><stop offset=".55" stop-color="#ffe8ef"/><stop offset="1" stop-color="#ffdfe8"/></linearGradient>
+  <linearGradient id="floor" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#e9bd82"/><stop offset="1" stop-color="#c98b55"/></linearGradient>
+  <radialGradient id="glow" cx="48%" cy="19%" r="58%"><stop stop-color="#fff6be" stop-opacity=".98"/><stop offset=".42" stop-color="#fff1be" stop-opacity=".3"/><stop offset="1" stop-color="#fff1be" stop-opacity="0"/></radialGradient>
+  <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="8" stdDeviation="5" flood-color="#7b4b37" flood-opacity=".18"/></filter>
+  <pattern id="dots" width="70" height="70" patternUnits="userSpaceOnUse"><circle cx="18" cy="18" r="4" fill="#fff" opacity=".55"/><circle cx="52" cy="45" r="3" fill="#fff" opacity=".45"/></pattern>
+  <pattern id="planks" width="160" height="90" patternUnits="userSpaceOnUse"><path d="M0 12H160M0 55H160" stroke="#b87848" stroke-opacity=".24" stroke-width="4"/><path d="M45 0V55M115 55v35" stroke="#b87848" stroke-opacity=".18" stroke-width="3"/></pattern>
+</defs>
+
+<rect width="1600" height="900" fill="url(#wall)"/><rect width="1600" height="900" fill="url(#dots)" opacity=".55"/><rect width="1600" height="900" fill="url(#glow)"/>
+<rect y="720" width="1600" height="180" fill="url(#floor)"/><rect y="720" width="1600" height="180" fill="url(#planks)" opacity=".85"/>
+<path d="M0 720 C260 700 420 728 615 707 C830 684 1025 730 1240 706 C1390 690 1505 703 1600 690 V900 H0Z" fill="#d99c63" opacity=".22"/>
+<g opacity=".5" fill="#fff" filter="url(#shadow)"><circle cx="725" cy="222" r="84"/><circle cx="880" cy="272" r="55"/><circle cx="980" cy="180" r="42"/></g>
+
+<g filter="url(#shadow)">
+  <rect x="610" y="66" width="415" height="330" rx="30" fill="#fffdf8" stroke="#d9a36b" stroke-width="12"/>
+  <path d="M630 84h375v292H630z" fill="#dff4ff" opacity=".62"/>
+  <path d="M643 330 C735 250 880 260 996 120 L1002 379 H642Z" fill="#bde6c2" opacity=".45"/>
+  <line x1="818" y1="72" x2="818" y2="392" stroke="#d9a36b" stroke-width="9"/><line x1="618" y1="232" x2="1018" y2="232" stroke="#d9a36b" stroke-width="9"/>
+  <path d="M608 82 C535 170 530 296 602 410 L695 410 C663 280 681 170 712 82Z" fill="#ffc6d6" opacity=".9"/>
+  <path d="M1027 82 C1100 170 1105 296 1033 410 L940 410 C972 280 954 170 923 82Z" fill="#ffc6d6" opacity=".9"/>
+</g><g opacity=".72"><path d="M82 130 C300 70 480 155 650 105 C890 36 1075 130 1280 82 C1395 55 1490 88 1540 115" fill="none" stroke="#c27b5a" stroke-width="5" stroke-linecap="round"/>
+<circle cx="100" cy="105" r="12" fill="#fff2a8" stroke="#e9bc73" stroke-width="4"/><circle cx="215" cy="125" r="12" fill="#fff2a8" stroke="#e9bc73" stroke-width="4"/><circle cx="330" cy="145" r="12" fill="#fff2a8" stroke="#e9bc73" stroke-width="4"/><circle cx="445" cy="105" r="12" fill="#fff2a8" stroke="#e9bc73" stroke-width="4"/><circle cx="560" cy="125" r="12" fill="#fff2a8" stroke="#e9bc73" stroke-width="4"/><circle cx="675" cy="145" r="12" fill="#fff2a8" stroke="#e9bc73" stroke-width="4"/><circle cx="790" cy="105" r="12" fill="#fff2a8" stroke="#e9bc73" stroke-width="4"/><circle cx="905" cy="125" r="12" fill="#fff2a8" stroke="#e9bc73" stroke-width="4"/><circle cx="1020" cy="145" r="12" fill="#fff2a8" stroke="#e9bc73" stroke-width="4"/><circle cx="1135" cy="105" r="12" fill="#fff2a8" stroke="#e9bc73" stroke-width="4"/><circle cx="1250" cy="125" r="12" fill="#fff2a8" stroke="#e9bc73" stroke-width="4"/><circle cx="1365" cy="145" r="12" fill="#fff2a8" stroke="#e9bc73" stroke-width="4"/><circle cx="1480" cy="105" r="12" fill="#fff2a8" stroke="#e9bc73" stroke-width="4"/></g>
+<g filter="url(#shadow)">
+ <rect x="104" y="628" width="115" height="120" rx="26" fill="#bd8354"/><circle cx="116" cy="610" r="48" fill="#9ac980"/><circle cx="185" cy="575" r="58" fill="#8ec077"/><circle cx="236" cy="628" r="49" fill="#a9d08d"/><circle cx="167" cy="662" r="42" fill="#7eb46b"/>
+ <rect x="1286" y="620" width="100" height="112" rx="25" fill="#c8915e"/><circle cx="1294" cy="610" r="38" fill="#8cc276"/><circle cx="1346" cy="575" r="50" fill="#a5d18a"/><circle cx="1390" cy="627" r="38" fill="#7fb86d"/>
+</g>
+<g filter="url(#shadow)">
+  <rect x="120" y="505" width="560" height="232" rx="42" fill="#c78955"/>
+  <rect x="150" y="453" width="485" height="118" rx="58" fill="#b97845"/>
+  <rect x="145" y="468" width="520" height="245" rx="32" fill="#ffd0dc"/>
+  <path d="M150 555 C270 515 380 590 498 542 C580 510 620 530 665 562 V713 H150Z" fill="#fff6f7" opacity=".68"/>
+  <g fill="#f3859c" opacity=".7"><circle cx="250" cy="596" r="14"/><circle cx="380" cy="632" r="12"/><circle cx="505" cy="584" r="13"/><circle cx="590" cy="652" r="10"/></g>
+  <rect x="735" y="535" width="165" height="145" rx="24" fill="#dca06b"/><circle cx="817" cy="594" r="39" fill="#fff1d8"/><rect x="775" y="625" width="84" height="18" rx="9" fill="#f1b0bf"/>
+  <rect x="1012" y="322" width="275" height="398" rx="22" fill="#b87648"/>
+  <g fill="#eec28c"><rect x="1035" y="358" width="230" height="20" rx="10"/><rect x="1035" y="462" width="230" height="20" rx="10"/><rect x="1035" y="566" width="230" height="20" rx="10"/></g>
+  <rect x="1060" y="388" width="56" height="56" rx="12" fill="#ffe1a5"/><rect x="1132" y="388" width="94" height="56" rx="12" fill="#cfe7bf"/><circle cx="1160" cy="522" r="34" fill="#ffd2dd"/><rect x="1210" y="505" width="38" height="52" rx="14" fill="#fff6e8"/>
+  <rect x="1362" y="315" width="150" height="430" rx="26" fill="#d7a073"/>
+  <g stroke="#aa714f" stroke-width="16" stroke-linecap="round"><line x1="1438" y1="320" x2="1438" y2="738"/><line x1="1375" y1="420" x2="1500" y2="420"/><line x1="1375" y1="585" x2="1500" y2="585"/></g>
+  <rect x="1365" y="665" width="142" height="85" rx="42" fill="#f8aab8"/>
+  <circle cx="390" cy="718" r="70" fill="#fff6f8"/><circle cx="946" cy="738" r="52" fill="#d9efc6"/><rect x="1020" y="722" width="250" height="38" rx="19" fill="#f4c4ce"/>
+</g>
+</svg>
